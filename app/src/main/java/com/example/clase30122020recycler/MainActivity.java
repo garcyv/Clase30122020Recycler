@@ -2,6 +2,7 @@ package com.example.clase30122020recycler;
 
 import android.os.Bundle;
 
+import com.example.clase30122020recycler.databinding.ActivityMainBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -14,15 +15,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
-
+    private ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+         setSupportActionBar(binding.toolbar);
+
+        FloatingActionButton fab = binding.fab;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
